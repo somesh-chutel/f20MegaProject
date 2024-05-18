@@ -1,0 +1,10 @@
+.my-cont{
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
