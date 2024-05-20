@@ -1,0 +1,21 @@
+.nav-bar{
+    height: 70px;
+    background-color: rgb(65, 63, 63);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 0;
+}
+.nav-logo{
+    width: 120px;
+}
+.n-link{
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+
+}
