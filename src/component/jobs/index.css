@@ -1,0 +1,12 @@
+.filter-all-jobs-cont{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+}
+.jobs-filter-section{
+    height: 100%;
+}
+.jobs-all-jobs-section{
+    height: 100%;
+    padding: 20px;
+}
