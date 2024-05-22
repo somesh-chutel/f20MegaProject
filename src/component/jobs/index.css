@@ -2,11 +2,23 @@
     width: 100%;
     min-height: 100vh;
     background-color: black;
+    display: flex;
+    justify-content: center;
 }
 .jobs-filter-section{
+    width: 35%;
     height: 100%;
 }
 .jobs-all-jobs-section{
+    width: 65%;
     height: 100%;
     padding: 20px;
+}
+.search-in{
+    background-color: transparent;
+    color: white;
+
+}
+.search-in:focus{
+    background-color: transparent;
 }

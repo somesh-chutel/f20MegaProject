@@ -1,8 +1,15 @@
 .jobs-card-cont{
     width: 100%;
-    background-color: rgb(70, 67, 64);
+    background-color: rgb(54, 53, 51);
     border: 15px;
     padding: 20px;
     list-style: none;
     margin-bottom: 10px;
+    border-radius: 15px;
+}
+.card-logo{
+    width: 70px;
+}
+.rating-icon{
+    color: gold;
 }

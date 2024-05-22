@@ -44,17 +44,24 @@ const Jobs = ()=>{
     },[])
 
 
+    const onChangeUserSearch = (event)=>{
+        console.log(event.target.value);
+        console.log(event.key);
+    }
+
+
 
     return(
         <>
             <Header/>
-            <div className="row filter-all-jobs-cont">
+            <div className="filter-all-jobs-cont">
 
-                        <div className="col-5 border border-primary jobs-filter-section">
+                        <div className="jobs-filter-section">
                             <FilterSection/>
                         </div>
-                        <div className="col-7 border border-danger jobs-all-jobs-section">
-                            
+                        <div className="jobs-all-jobs-section">
+                            <input onKeyDown={onChangeUserSearch} type="search" className="form-control w-75 search-in"/>
+                            <br />
                             <ul>
                                 {allValues.jobsList.map(each=>
                                     <DisplayAllJobs jobsItem={each} key={each.id}/>
