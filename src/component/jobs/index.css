@@ -14,11 +14,3 @@
     height: 100%;
     padding: 20px;
 }
-.search-in{
-    background-color: transparent;
-    color: white;
-
-}
-.search-in:focus{
-    background-color: transparent;
-}

@@ -9,7 +9,10 @@ const Jobs = ()=>{
     const token = Cookies.get("jwtToken");
 
     const [allValues,setValue] = useState({
-        jobsList:[]
+        jobsList:[],
+        empType:[],
+        minPakage:"",
+        userSearch:""
     });
 
     useEffect(()=>{
@@ -18,7 +21,9 @@ const Jobs = ()=>{
 
         const fetchJobsData = async()=>{
 
-            const url = "https://apis.ccbp.in/jobs";
+            console.log(allValues.jobsList);
+
+            const url = `https://apis.ccbp.in/jobs?employment_type=${allValues.empType}&minimum_package=${allValues.minPakage}&search=${allValues.userSearch}`;
 
             const options = {
                 method: 'GET',
@@ -29,8 +34,6 @@ const Jobs = ()=>{
 
             const response = await fetch(url,options);
             const jobsData = await response.json();
-
-            console.log(response);
             
             if(response.ok===true){
                 setValue({...allValues,jobsList:jobsData.jobs});
@@ -41,12 +44,24 @@ const Jobs = ()=>{
         }
 
         fetchJobsData();
-    },[])
+    },[allValues.userSearch,allValues.empType])
 
 
     const onChangeUserSearch = (event)=>{
-        console.log(event.target.value);
-        console.log(event.key);
+        if(event.key==="Enter"){
+            setValue({...allValues,userSearch:event.target.value});
+        }
+        
+    }
+
+    const onChangeEmploymentType = (value,isChecked)=>{
+        if(isChecked===true){
+            setValue({...allValues,empType:[...allValues.empType,value]});//empType->["Fulltime"],-->[...allValues.emptype]-->"Fulltime",value--->["Fulltime","Partime"]
+        }
+        else{
+            setValue({...allValues,empType:allValues.empType.filter(each=>each!==value)});
+        }
+        
     }
 
 
@@ -57,7 +72,7 @@ const Jobs = ()=>{
             <div className="filter-all-jobs-cont">
 
                         <div className="jobs-filter-section">
-                            <FilterSection/>
+                            <FilterSection changeEmpT = {onChangeEmploymentType}/>
                         </div>
                         <div className="jobs-all-jobs-section">
                             <input onKeyDown={onChangeUserSearch} type="search" className="form-control w-75 search-in"/>
